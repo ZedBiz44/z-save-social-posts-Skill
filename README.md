@@ -45,6 +45,8 @@ ever disagree, `SKILL.md` wins.
 ## Companion skills
 
 - **z-files-folders** — all file/folder naming
+- Read its live Notion guide for client, venture and concept-first naming,
+  destination authority and read-back checks. “Project” is reserved for Asana.
 - **z-agent-communication** — wording for reports and human-facing messages
 
 ## Validate
@@ -55,6 +57,25 @@ Run the z-ai-skill-developer validator before release:
 
 The skill must pass, contain no secrets, and complete one real test
 before wider installation. Jack approves wider ZedBiz installation.
+
+For authoring checks run `python -m unittest discover -s tests -v`.
+After committing the source, run `python scripts/build_package.py`; the clean
+`dist/z-save-social-posts/` folder contains only declared runtime resources.
+`dist/package-receipt.json` records the source commit and each file's SHA-256.
+Validate that folder with the Z validator and the target platform's validator
+before installation. Tests, authoring records and README stay out of the package.
+
+The maintained human SOP is in [Notion](https://www.notion.so/3fea3e33d581802695d6f279a802055e).
+Mary's working Facebook/Instagram setup remains fully documented for handover.
+This revised shared package is a release candidate, not a verified deployment;
+no installation or change to Mary's schedule is implied by publishing it.
+
+Duplicate-helper output schema v2 is intentionally advisory. Callers must
+handle `review-match` and `inspect-content` without automatic skipping.
+Existing handled-ID lists are retained in the state template; new item records
+track incomplete stages. For videos require content analysis, upload, media
+verification and note verification before completion. Never reset live state
+from this empty template. No live caller or state migration has been performed.
 
 ## Safety and approval boundary
 

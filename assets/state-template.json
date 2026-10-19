@@ -1,1 +1,13 @@
-{"filed_savable_ids":[],"ig_mary_muse":{"account_id":"","collection_id":"","filed_media_ids":[],"username":""}}
+{
+  "schema_version": 2,
+  "filed_savable_ids": [],
+  "ig_mary_muse": {"account_id": "", "collection_id": "", "filed_media_ids": [], "username": ""},
+  "items": {},
+  "item_template": {
+    "platform": "", "account_id": "", "post_id": "", "source_link": "",
+    "note_system": "", "note_id": "", "drive_file_ids": [],
+    "required_stages": ["note_saved", "note_verified"],
+    "stages": {"note_saved": false, "content_analyzed": false, "video_uploaded": false, "media_verified": false, "note_verified": false},
+    "status": "pending", "last_error": "", "updated_at": ""
+  }
+}

@@ -1,9 +1,16 @@
 # Jack's reference configuration
 
-The complete working deployment this skill was built from (2026-10-19).
+Mary's working deployment as reported when this skill was built (2026-10-19).
 New agents: copy this pattern and substitute your own platform access and
 destinations. IDs below are Jack's — do not reuse them for another
 principal.
+
+Keep these tools, IDs, commands and workarounds: Jack explicitly wants this
+handover reference preserved so another agent can take over without starting
+again. They are implementation knowledge, not a claim that every agent or
+platform has the same access. Verify tools, account, schema and destinations
+before use. Adapt when verified capabilities differ; retain the useful history.
+No live re-test of Mary's setup was performed during Cody's shared-skill edit.
 
 ## Inboxes (rule 1 intake)
 
@@ -35,11 +42,13 @@ both inboxes. State file tracks handled IDs:
 
 - URL pass: query Marketing-Swipes for the Source-Link.
 - Content pass: `scripts/dedupe.py` (Jaccard word-set similarity, 0.85
-  threshold; normalization: lowercase, whitespace collapse, unicode-bold
-  flattening, link stripping). Catches reposts with new URLs and dupes
-  within a batch.
+  threshold; normalization: case folding, whitespace collapse and Unicode
+  normalization). Flags potential reposts within saved entries and a batch.
+  Revised output is advisory: inspect text/media before rejecting a match.
+  Existing callers must handle `review-match` and `inspect-content`; do not
+  map them to skip. URLs are retained because different linked resources matter.
 
-## Video pipeline (proven 2026-10-19)
+## Video pipeline (Mary's reported successful setup, 2026-10-19)
 
 - Tools: `yt-dlp` + `faster-whisper` in `~/workspace/.venv-whisper`
   (base model cached). Gotcha: faster-whisper 1.2.1 calls
@@ -48,6 +57,12 @@ both inboxes. State file tracks handled IDs:
   `/tmp` tmpfs.
 - Talking videos → transcript → summary. Music-only → frame-watch
   (~6 frames via ffmpeg) → visual summary.
+- The shared workflow now also checks important visuals in talking videos
+  and expands frame sampling where needed. Keep the historical recipe above
+  as context; apply [the current video instructions](video-pipeline.md).
+- The version-specific `av.open` workaround above is historical advice.
+  Inspect the installed versions and reproduce the exact error before using
+  it; do not patch a working environment automatically.
 - Pipeline intermediates live under the goal's `hidden_files/saves/`,
   never /tmp (a restart wiped /tmp mid-run once).
 
@@ -63,3 +78,17 @@ created only with Jack's OK. Known: Jeff J Hunter
 AI agents, marketing, prompts, AI tools, automation, GHL/GoHighLevel.
 Extend only with Jack's OK. Lanes tag and categorize; they don't decide
 worthiness (see [worthiness](worthiness.md)).
+
+Requested discovery subjects still restrict a pull. These default lanes must
+not cause unrelated posts to be saved. Store any new agreed categories in the
+existing system rather than creating a parallel taxonomy.
+
+## Filing and handover checks
+
+Reconcile the recorded video homes with the current folder map and Files &
+Folders Guide before new writes. Preserve these IDs and existing archives;
+do not move or rename them merely because this reference is being reviewed.
+If authority or personal-data access is unclear, hold that affected write.
+Use client, venture, assignment or concept terminology; “project” means an
+Asana project only. A new operator verifies these connections in their own
+runtime before taking over the existing schedule; avoid two active watchers.
