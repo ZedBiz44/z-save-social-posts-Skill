@@ -66,7 +66,10 @@ Scheduling needs an actual authorized scheduler; the skill itself is not one.
 ## Workflow
 
 1. **Pull.** From the inbox, a timeline, or a pasted link. Read the full
-   post text via the platform's read command.
+   post text via the platform's read command. For inbox saves, also pull
+   the comments — they are often the real value. Append substantive ones
+   to the filed entry under a "Comments" heading; skip one-word/emoji-only
+   noise. File comment text even when author names aren't available.
 2. **Dedupe.** Check the destination for the post URL first (cheap pass),
    and stable platform/account/post identity, then use the
    [duplicate helper](scripts/dedupe.py) to flag similar text. Its results
